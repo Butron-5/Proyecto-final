@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styleAlumnos.css">
+</head>
+<header>
+    <ul>
+        <li><a class="active" href="index.html">Index</a></li>
+        <li><a href="profesores.html">Profesores</a></li>
+        <li><a href="alumnos.html">Alumnos</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+      </ul>
+</header>
+<body>
+    <form id="formulario"> 
+        <br>
+        <label for="id">Id</label>
+        <input type="text" id="id" name="id" placeholder="Introduzca el id" class="input-container-input"  >
+    <br>
+        <br>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="nombre" placeholder="Introduzca nombre" class="input-container-input" > 
+      
+        <br>
+            <button class = "boton" type="submit">Buscar</button>
+    </form>
+    <hr>
+    <table>
+        <thead>
+           <th>Id</th>
+           <th>NIF</th>
+           <th>Nombre</th>
+           <th>Apellido 1</th>
+           <th>Apellido 2</th>
+           <th>Ciudad</th>
+           <th>Sexo</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+   </table>
+   <hr>
+   <table class="tablaOculta">
+    <thead>
+       <th>Id</th>
+       <th>Nombre</th>
+       <th>Créditos</th>
+       <th>Curso</th>
+       <th>Cuatrimestre</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+   <button class="boton" onclick="location.href='index.html'">Volver</button>
+</body>
+</html>
