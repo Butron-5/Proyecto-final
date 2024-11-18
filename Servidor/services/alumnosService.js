@@ -2,16 +2,19 @@ const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
-async function getOneAlumno() {
+async function getAlumnoInfo(alumno) {
     
-    let sql = "SELECT * FROM alumno";
-
-    if(id!=undefined){
-        sql += "WHERE id= " +id+ ";"
-    }else if(nif!=undefined){
-        sql += "WHERE nif= " +nif+ ";"
+    let sql = "SELECT * FROM alumno WHERE";
+    
+    if(alumno.id){
+        sql += " alumno.id = '" + alumno.id + "'"; 
+       
+    }else if(alumno.nif){
+        sql += " alumno.nif = '" + alumno.nif + "'"; 
+        
     }else{
-        sql+= "WHERE nombre= " +nombre+ ";"
+        sql+= " alumno.nombre = '" + alumno.nombre + "'"; 
+        
     }
 
     const rows = await db.query(sql);
@@ -42,7 +45,7 @@ async function erradicaAlumnos(id) {
     return data    
 }
 module.exports = {
-    getOneAlumno,
+    getAlumnoInfo,
     creaNuevoAlumno,
     erradicaAlumnos
 }

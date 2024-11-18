@@ -11,8 +11,9 @@ app.use(
 app.use(cors());
 app.use(bodyParser.json());
 
-/*app.use("/", require("./routes/alumnos"));*/
+app.use("/alumnos", require("./routes/alumnos"));
 app.use("/profesores", require("./routes/profesores"));
+app.use("/asignatura", require("./routes/asignatura"));
 /*app.use("/", require("./routes/cursos"));*/
 
 const PORT = process.env.PORT || 3000;

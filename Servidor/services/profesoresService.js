@@ -12,25 +12,31 @@ async function getAllProfesores() {
     return data
 }
 
-async function getProfesorByInfo() {
+async function getOneProfesor(id) {
     
-    //let sql = "SELECT * FROM profesor, departamento 
-                //WHERE nombre= " +nombre+ " AND apellido1= " +apellido1+ " AND sexo= " +sexo+ "AND profesor.id_departamento = departamento.id"
+    let sql = "SELECT * FROM profesor WHERE id= " +id+ ";"
 
-    let sql = "SELECT * FROM profesor, departamento WHERE  profesor.id_departamento = departamento.id"
+    const rows = await db.query(sql);
+    const data = helper.emptyOrRows(rows);
+
+    return data
+}
+async function getProfesorByInfo(profesor) {
     
-    if (nombre!=undefined){
-        sql+="nombre=  " + nombre+ " AND";
+
+    let sql = "SELECT * FROM profesor WHERE 1=1"//INNER JOIN departamento ON profesor.id_departamento = departamento.id WHERE 1=1"
+   
+    if (profesor.nombre) {
+        sql += " AND profesor.nombre = '" + profesor.nombre + "'";
     }
-    if(apellido1!=undefined){
-        sql+="apellido1= " +apellido1+ " AND ";
+    if (profesor.apellido1) {
+        sql += " AND profesor.apellido1 = '" + profesor.apellido1 + "'";
     }
-    if(sexo!=undefined){
-        sql+="sexo= " +sexo+ "AND";
+    if (profesor.sexo) {
+        sql += " AND profesor.sexo = '" + profesor.sexo + "'";
     }
 
-        sql+= "profesor.id_departamento = departamento.id";
-    
+       
     const rows = await db.query(sql);
     const data = helper.emptyOrRows(rows);
 
@@ -60,6 +66,7 @@ async function exterminaProfesores(id) {
 }
 module.exports ={
     getAllProfesores,
+    getOneProfesor,
     getProfesorByInfo,
     creaNuevoProfesor,
     exterminaProfesores
