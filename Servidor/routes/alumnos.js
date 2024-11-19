@@ -6,7 +6,7 @@ const alumnosService = require("../services/alumnosService");
 router.get("/", async function (req,res) {
     
     let code,msg;
-    const {id,nif,nombre} = req.body
+    const {id,nif,nombre} = req.query
     
     if(id == undefined && nif == undefined && nombre == undefined){
         res.status(401).json({msg: "Introduzca los parametros de busqueda correctamente"})

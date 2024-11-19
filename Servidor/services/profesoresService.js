@@ -24,7 +24,8 @@ async function getOneProfesor(id) {
 async function getProfesorByInfo(profesor) {
     
 
-    let sql = "SELECT * FROM profesor WHERE 1=1"//INNER JOIN departamento ON profesor.id_departamento = departamento.id WHERE 1=1"
+    let sql = "SELECT profesor.nif, profesor.nombre, profesor.apellido1, profesor.apellido2, profesor.ciudad, profesor.sexo, departamento.nombre AS Departamento"
+    sql+= " FROM profesor INNER JOIN departamento ON profesor.id_departamento = departamento.id WHERE 1=1"
    
     if (profesor.nombre) {
         sql += " AND profesor.nombre = '" + profesor.nombre + "'";

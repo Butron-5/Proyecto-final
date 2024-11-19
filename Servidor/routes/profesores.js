@@ -42,7 +42,7 @@ router.get("/buscar/estudiante",async function (req,res) {
 
     let msg,code;
 
-    const {nombre,apellido1,sexo} = req.body;
+    const {nombre,apellido1,sexo} = req.query;
 
     if(nombre==undefined && apellido1==undefined && sexo==undefined){
         
@@ -57,7 +57,7 @@ router.get("/buscar/estudiante",async function (req,res) {
 
         }
 
-        try{console.debug("Entro");
+        try{
             code = 200;
             msg = "Información sobre el profesor obtenida de forma correcta"
             const profesor = await profesoresService.getProfesorByInfo(profe);
