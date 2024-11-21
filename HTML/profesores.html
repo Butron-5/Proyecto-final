@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/styleProfesores.css">
-    <script src="./Js/profesores.js"></script>
+    <script type = "module" src="./Js/profesores.js"></script>
 </head>
 <header>
     <ul>
@@ -16,11 +16,11 @@
       </ul>
 </header>
 <body>
-  <form id="formulario"> 
+  <form id="formulario"  onsubmit="buscaUno(event);"> 
         
         <br>
             <label for="name">Nombre</label>
-            <input type="text" id="name" name="nombre" placeholder="Introduzca nombre" class="input-container-input" > 
+            <input type="text" id="nombre" name="nombre" placeholder="Introduzca nombre" class="input-container-input" > 
         <br>
             <label for="apellido1">Primer apellido</label>
             <input type="text" id="apellido1" name="apellido1" placeholder="Introduzca primer apellido" class="input-container-input"  >
@@ -58,7 +58,7 @@
            <th>Sexo</th>
            <th>Nombre Departamento</th>
         </thead>
-        <tbody>
+        <tbody id="todosLosProfesores">
 
         </tbody>
    </table>

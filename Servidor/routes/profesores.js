@@ -38,7 +38,7 @@ router.get("/:id", async function (req,res) {
         res.status(501).json({msg: "Error al obtener la lista de profesores, revisa la consola."});
     }
 });
-router.get("/buscar/estudiante",async function (req,res) {
+router.get("/buscar/profesor",async function (req,res) {
 
     let msg,code;
 

@@ -1,8 +1,15 @@
 const servidor = "http://localhost:3000/";
 
-function rellenarTabla(data){//data es un array de datos que hay que pintar
+const urlProfesor = servidor + "profesores";
+const urlAlumno = servidor + "alumno";
+const urlAsignatura = servidor + "asignatura";
+const urlCursos = servidor + "curso";
+const urlDepartamento = servidor + "departamento";
+const urlGrado = servidor + "grado";
 
-    const table = document.getElementById("resultados");
+function rellenarTabla(data,selectId){//data es un array de datos que hay que pintar
+
+    const table = document.getElementById(selectId);
 
     table.innerHTML = '';
 
@@ -38,6 +45,7 @@ function rellenarDesplegable(data,selectId){//data es un array de datos que hay 
     lista.innerHTML = '';
 
     let out = '';
+    out += '<option value= "0"> Selecciona </option>';
     for(let item of data){
         out += '<option value="'+ item.id + '">'; 
 
@@ -51,5 +59,11 @@ function rellenarDesplegable(data,selectId){//data es un array de datos que hay 
         out += '</option>'
     }
 
+
     lista.innerHTML = out;
 };
+
+function limpiarBody(selectId){
+    document.getElementById(selectId).innerHTML="";
+  }
+export{urlDepartamento,rellenarDesplegable,urlGrado,urlProfesor,rellenarTabla,urlAlumno,limpiarBody};

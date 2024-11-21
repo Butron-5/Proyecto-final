@@ -13,9 +13,10 @@ async function getAlumnoInfo(alumno) {
         sql += " alumno.nif = '" + alumno.nif + "'"; 
         
     }else{
-        sql+= " alumno.nombre = '" + alumno.nombre + "'"; 
-        
+        sql+= " alumno.nombre LIKE '%" + alumno.nombre + "%'";
     }
+        
+    
 
     const rows = await db.query(sql);
     const data = helper.emptyOrRows(rows);
