@@ -16,13 +16,13 @@
       </ul>
 </header>
 <body>
-    <form id="formulario"> 
+    <form id="formulario"  onsubmit="buscaAlumno(event)"> 
         <br>
-        <label for="id">Id o NIF</label>
-        <input type="text" id="dosValores" name="id" placeholder="Introduzca el id o el NIF" class="input-container-input"  >
+        <label for="dosValores">Id o NIF</label>
+        <input type="text" id="dosValores" name="dosValores" placeholder="Introduzca el id o el NIF" class="input-container-input"  >
     <br>
         <br>
-            <label for="name">Nombre</label>
+            <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" placeholder="Introduzca nombre" class="input-container-input" > 
       
         <br>
@@ -39,7 +39,7 @@
            <th>Ciudad</th>
            <th>Sexo</th>
         </thead>
-        <tbody>
+        <tbody id="buscaAlumno">
 
         </tbody>
    </table>

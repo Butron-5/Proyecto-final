@@ -18,7 +18,6 @@ router.get("/",async function (req,res) {
             if (buscaAsignaturasPorGrado.length == 0) {
                 return res.status(401).json({ msg: "Este grado no tiene ninguna asignatura" });
             }
-            console.debug(buscaAsignaturasPorGrado);
             res.status(200).json({code,msg,buscaAsignaturasPorGrado});
 
         }catch(err){

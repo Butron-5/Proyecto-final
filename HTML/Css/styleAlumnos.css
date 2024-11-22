@@ -55,13 +55,14 @@ table {
  th {
     background: #eee;
  }
-
+/*Estilos del formulario*/
  form{
+  color:white;
 	width:100%;
 	padding:16px;
 	border-radius:10px;
 	margin:auto;
-	background-color:#ccc;
+	background-color: black;
 }
 
 form label{

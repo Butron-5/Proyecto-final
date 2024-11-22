@@ -16,11 +16,13 @@
       </ul>
 </header>
 <body>
-    <form>
-        <label for="grados">Grados</label>
+    <form onsubmit="buscaCurso(event)">
+        <label for="optionGrados">Grados</label>
         <select name="grados" id="optionGrados">
         
         </select>
+
+        <button class = "boton" type="submit">Buscar</button>
     </form>
     <hr>
     <table>
@@ -32,7 +34,7 @@
            <th>Cuatrimestre</th>
            <th>Nombre del profesor</th>
         </thead>
-        <tbody>
+        <tbody id="cursos">
 
         </tbody>
    </table>

@@ -4,16 +4,15 @@ const config = require('../config');
 
 async function getAlumnoInfo(alumno) {
     
-    let sql = "SELECT * FROM alumno WHERE";
+    let sql = "SELECT alumno.id, nif, alumno.nombre, alumno.apellido1, alumno.apellido2, alumno.ciudad, alumno.sexo FROM alumno WHERE";
     
     if(alumno.id){
         sql += " alumno.id = '" + alumno.id + "'"; 
-       
-    }else if(alumno.nif){
-        sql += " alumno.nif = '" + alumno.nif + "'"; 
+        sql += " OR alumno.nif = '" + alumno.id + "'";
         
     }else{
         sql+= " alumno.nombre LIKE '%" + alumno.nombre + "%'";
+       
     }
         
     

@@ -6,23 +6,21 @@ const alumnosService = require("../services/alumnosService");
 router.get("/", async function (req,res) {
     
     let code,msg;
-    const {id,nif,nombre} = req.query
+    const {idNif,nombre} = req.query
     
-    if(id == undefined && nif == undefined && nombre == undefined){
+    if(idNif == undefined && nombre == undefined){
         res.status(401).json({msg: "Introduzca los parametros de busqueda correctamente"})
     }else{
 
         let alumno = {
-            id: id,
-            nif: nif,
+            id: idNif,
             nombre: nombre
         }
-        
-        try{
+       
+        try{ 
             code = 200;
             msg = "Información sobre el alumno obtenida correctamente"
             const buscaAlumno = await alumnosService.getAlumnoInfo(alumno);
-            
             res.status(200).json({code,msg,buscaAlumno});
 
         }catch(err){

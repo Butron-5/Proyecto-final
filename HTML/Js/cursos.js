@@ -1,4 +1,4 @@
-import { urlGrado,rellenarDesplegable } from "./utilidades.js";
+import { urlGrado,rellenarDesplegable,urlCursos,limpiarBody,rellenarTabla } from "./utilidades.js";
 
 function buscarGrado(){
     
@@ -21,3 +21,25 @@ function buscarGrado(){
 }; 
 
 window.onload = buscarGrado();
+
+function buscaCurso(event){
+    
+        if (event) event.preventDefault();
+
+        const id = document.getElementById("optionGrados").value.trim();
+          
+        fetch(urlCursos+"?id="+id, {method:'GET'}).then(
+        
+            response => {
+            return response.json();
+               
+        }).then(
+            data=> {
+            console.log( "curso " +data);
+            const arrayCursos = data.buscaAsignaturasPorGrado;
+            limpiarBody("cursos")
+            rellenarTabla(arrayCursos,"cursos");
+        })
+    }
+
+    window.buscaCurso = buscaCurso;

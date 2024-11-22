@@ -1,9 +1,9 @@
 const servidor = "http://localhost:3000/";
 
 const urlProfesor = servidor + "profesores";
-const urlAlumno = servidor + "alumno";
+const urlAlumno = servidor + "alumnos";
 const urlAsignatura = servidor + "asignatura";
-const urlCursos = servidor + "curso";
+const urlCursos = servidor + "cursos";
 const urlDepartamento = servidor + "departamento";
 const urlGrado = servidor + "grado";
 
@@ -25,7 +25,7 @@ function rellenarTabla(data,selectId){//data es un array de datos que hay que pi
         out += '<td>' + item.apellido1 + '</td>';
         out += '<td>' + item.apellido2 + '</td>';
         out += '<td>' + item.comision + '</td>';*/
-
+        out+='<td><button onclick="">Dale</button></td>';
         out += '</tr>'
     }
 
@@ -66,4 +66,4 @@ function rellenarDesplegable(data,selectId){//data es un array de datos que hay 
 function limpiarBody(selectId){
     document.getElementById(selectId).innerHTML="";
   }
-export{urlDepartamento,rellenarDesplegable,urlGrado,urlProfesor,rellenarTabla,urlAlumno,limpiarBody};
+export{urlDepartamento,rellenarDesplegable,urlGrado,urlProfesor,rellenarTabla,urlAlumno,limpiarBody,urlAsignatura,urlCursos};

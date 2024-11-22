@@ -5,7 +5,7 @@ const config = require('../config');
 
 async function getAllGrados() {
 
-    let sql = "SELECT * FROM grado"
+    let sql = "SELECT grado.id, grado.nombre FROM grado"
 
     const rows = await db.query(sql);
     const data = helper.emptyOrRows(rows);
