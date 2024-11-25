@@ -22,4 +22,23 @@ function buscaAlumno(event){
     })
 }
     window.buscaAlumno = buscaAlumno;
-    
+
+function pulsaParaVer(){
+
+ const tabalaNueva = document.getElementById("tablaAsignaturas");
+  tabalaNueva.style.display = "block"; 
+
+fetch(urlAsignatura + "?id=" +id, { method: 'GET' }).then(
+
+        response => {
+        console.log(response);
+        return response.json();
+        
+    }).then(
+        data => {
+        console.log(data);
+        const arrayAsignaturas = data.buscaAsignaturas; // Este dato viene del servidor.
+        rellenarTabla(arrayAsignaturas, "rellenaNuevaTabla");
+    })
+}
+window.pulsaParaVer = pulsaParaVer;

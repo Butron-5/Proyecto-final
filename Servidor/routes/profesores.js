@@ -42,9 +42,9 @@ router.get("/buscar/profesor",async function (req,res) {
 
     let msg,code;
 
-    const {nombre,apellido1,sexo} = req.query;
+    const {nombre,apellido1,sexo,departamento} = req.query;
 
-    if(nombre==undefined && apellido1==undefined && sexo==undefined){
+    if(nombre==undefined && apellido1==undefined && sexo==undefined && departamento == undefined){
         
         res.status(401).json({msg: "Introduzca corretamete los parametros de la busqueda"})
     }else{
@@ -53,8 +53,8 @@ router.get("/buscar/profesor",async function (req,res) {
             
             nombre: nombre,
             apellido1: apellido1,
-            sexo: sexo
-
+            sexo: sexo,
+            departamento: departamento
         }
 
         try{

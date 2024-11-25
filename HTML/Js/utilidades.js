@@ -25,7 +25,7 @@ function rellenarTabla(data,selectId){//data es un array de datos que hay que pi
         out += '<td>' + item.apellido1 + '</td>';
         out += '<td>' + item.apellido2 + '</td>';
         out += '<td>' + item.comision + '</td>';*/
-        out+='<td><button onclick="">Dale</button></td>';
+       
         out += '</tr>'
     }
 

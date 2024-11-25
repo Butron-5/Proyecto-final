@@ -37,7 +37,10 @@ async function getProfesorByInfo(profesor) {
     if (profesor.sexo) {
         sql += " AND profesor.sexo = '" + profesor.sexo + "'";
     }
-  
+    if(profesor.departamento){
+        sql+= " AND departamento.nombre = '" + profesor.departamento + "'";
+    }
+ 
     const rows = await db.query(sql);
     const data = helper.emptyOrRows(rows);
 

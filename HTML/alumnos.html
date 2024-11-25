@@ -29,7 +29,7 @@
             <button class = "boton" type="submit">Buscar</button>
     </form>
     <hr>
-    <table>
+    <table  onclick="pulsaParaVer()">
         <thead>
            <th>Id</th>
            <th>NIF</th>
@@ -44,7 +44,7 @@
         </tbody>
    </table>
    <hr>
-   <table class="tablaOculta">
+   <table class="tablaOculta" id="tablaAsignaturas">
     <thead>
        <th>Id</th>
        <th>Nombre</th>
@@ -52,7 +52,7 @@
        <th>Curso</th>
        <th>Cuatrimestre</th>
     </thead>
-    <tbody>
+    <tbody id="rellenaNuevaTabla">
 
     </tbody>
 </table>

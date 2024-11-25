@@ -45,7 +45,10 @@ function buscaUno(event){
     const nombre = document.getElementById("nombre").value.trim();
     const apellido1 = document.getElementById("apellido1").value.trim();
     const sexo = document.getElementById("sexo").value.trim();
-    let urlTodosLosDatos = urlProfesor+"/buscar/profesor" + "?nombre=" + nombre + "&apellido1=" + apellido1 + "&sexo=" + sexo;
+    /*No funciona asi, revisar con egoitz. En el postman va perfectamente*/
+    /*const departamento = document.getElementById("departamento").value.trim();*/
+
+    let urlTodosLosDatos = urlProfesor+"/buscar/profesor" + "?nombre=" + nombre + "&apellido1=" + apellido1 + "&sexo=" + sexo /*+ "&departamento=" + departamento*/;
 
     fetch(urlTodosLosDatos, {method:'GET'}).then(
 
