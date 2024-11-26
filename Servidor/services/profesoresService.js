@@ -37,8 +37,10 @@ async function getProfesorByInfo(profesor) {
     if (profesor.sexo) {
         sql += " AND profesor.sexo = '" + profesor.sexo + "'";
     }
-    if(profesor.departamento){
-        sql+= " AND departamento.nombre = '" + profesor.departamento + "'";
+    if(profesor.departamento == 0){
+        sql+="";
+    }else{
+        sql+= " AND profesor.id_departamento = '" + profesor.departamento + "'";
     }
  
     const rows = await db.query(sql);

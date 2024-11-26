@@ -6,6 +6,7 @@ const urlAsignatura = servidor + "asignatura";
 const urlCursos = servidor + "cursos";
 const urlDepartamento = servidor + "departamento";
 const urlGrado = servidor + "grado";
+const urlGestion = servidor + "gestion";
 
 function rellenarTabla(data,selectId){//data es un array de datos que hay que pintar
 
@@ -16,7 +17,32 @@ function rellenarTabla(data,selectId){//data es un array de datos que hay que pi
     let out = '';
     for(let item of data){
         out += '<tr>'; 
+    
+        for(let value of Object.values(item)){
+            out += '<td>' + value + '</td>';
+        }
+       /* out += '<td>' + item.id + '</td>';
+        out += '<td>' + item.nombre + '</td>';
+        out += '<td>' + item.apellido1 + '</td>';
+        out += '<td>' + item.apellido2 + '</td>';
+        out += '<td>' + item.comision + '</td>';*/
+       
+        out += '</tr>'
+    }
 
+    table.innerHTML = out;
+};
+
+function vidaATablaOculta(data,selectId){//data es un array de datos que hay que pintar
+
+    const table = document.getElementById(selectId);
+
+    table.innerHTML = '';
+
+    let out = '';
+    for(let item of data){
+        out += '<tr onClick="pulsaParaVer('+ item.id + ')">'; 
+    
         for(let value of Object.values(item)){
             out += '<td>' + value + '</td>';
         }
@@ -66,4 +92,29 @@ function rellenarDesplegable(data,selectId){//data es un array de datos que hay 
 function limpiarBody(selectId){
     document.getElementById(selectId).innerHTML="";
   }
-export{urlDepartamento,rellenarDesplegable,urlGrado,urlProfesor,rellenarTabla,urlAlumno,limpiarBody,urlAsignatura,urlCursos};
+
+  function rellenarTablaConCheckbox(data,selectId){//data es un array de datos que hay que pintar
+
+    const table = document.getElementById(selectId);
+
+    table.innerHTML = '';
+
+    let out = '';
+    for(let item of data){
+        out += '<tr>'; 
+    
+        for(let value of Object.values(item)){
+            out += '<td>' + value + '</td>';
+        }
+       /* out += '<td>' + item.id + '</td>';
+        out += '<td>' + item.nombre + '</td>';
+        out += '<td>' + item.apellido1 + '</td>';
+        out += '<td>' + item.apellido2 + '</td>';
+        out += '<td>' + item.comision + '</td>';*/
+        out+= ' <input type="checkbox">'
+        out += '</tr>'
+    }
+
+    table.innerHTML = out;
+};
+export{urlDepartamento,rellenarDesplegable,urlGrado,urlProfesor,rellenarTabla,urlAlumno,limpiarBody,urlAsignatura,urlCursos,vidaATablaOculta,rellenarTablaConCheckbox,urlGestion};

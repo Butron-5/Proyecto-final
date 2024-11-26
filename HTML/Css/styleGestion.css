@@ -15,7 +15,7 @@ form{
 	margin:32px auto;
 	background-color:#b2ccff;
 }
-input[type="text"],select,textarea{
+input[type="text"],textarea{
 	display:block;
 	padding:4px 8px;
 	width:100%;
@@ -29,7 +29,13 @@ label{
 	display:block;
 	margin:8px 0;
 }
-
+select{
+  display:block;
+  padding: 4px 8px;
+  width:105%;
+  margin:8px 0;	
+   
+}
 .marketing label,.rgpd{display:inline-block;font-weight:normal;}
 .rgpd{width:90%;}
 mark{float:right;}
@@ -65,3 +71,20 @@ ul {
   li:last-child {
     border-right: none;
   }
+/*Estilo para la tabla*/
+table {
+  width: 100%;
+  border: 1px solid #000;
+}
+th, td {
+width: 10%;
+text-align:center;
+vertical-align: center;
+border: 1px solid #000;
+border-collapse: collapse;
+padding: 0.4em;
+caption-side: bottom;
+}
+th {
+  background: #eee;
+}

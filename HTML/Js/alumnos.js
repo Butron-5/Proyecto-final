@@ -1,4 +1,4 @@
-import {rellenarTabla,urlAlumno,limpiarBody,urlAsignatura } from "./utilidades.js";
+import {rellenarTabla,urlAlumno,limpiarBody,urlAsignatura,vidaATablaOculta } from "./utilidades.js";
 
 function buscaAlumno(event){
     
@@ -17,18 +17,18 @@ function buscaAlumno(event){
     }).then(
         data=> {
         const arrayAlumnos = data.buscaAlumno;
-        limpiarBody("buscaAlumno")
-        rellenarTabla(arrayAlumnos,"buscaAlumno");
+        limpiarBody("buscaAlumno");
+        vidaATablaOculta(arrayAlumnos,"buscaAlumno");
     })
 }
     window.buscaAlumno = buscaAlumno;
 
-function pulsaParaVer(){
+function pulsaParaVer(id){
 
  const tabalaNueva = document.getElementById("tablaAsignaturas");
   tabalaNueva.style.display = "block"; 
 
-fetch(urlAsignatura + "?id=" +id, { method: 'GET' }).then(
+fetch(urlAsignatura + "?id=" + id, { method: 'GET' }).then(
 
         response => {
         console.log(response);
@@ -38,7 +38,8 @@ fetch(urlAsignatura + "?id=" +id, { method: 'GET' }).then(
         data => {
         console.log(data);
         const arrayAsignaturas = data.buscaAsignaturas; // Este dato viene del servidor.
-        rellenarTabla(arrayAsignaturas, "rellenaNuevaTabla");
+       
+        vidaATablaOculta(arrayAsignaturas, "rellenaNuevaTabla");
     })
 }
 window.pulsaParaVer = pulsaParaVer;

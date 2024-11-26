@@ -17,6 +17,7 @@ app.use("/asignatura", require("./routes/asignatura"));
 app.use("/cursos", require("./routes/cursos"));
 app.use("/grado", require("./routes/grado"));
 app.use("/departamento", require("./routes/departamento"));
+app.use("/gestion", require("./routes/gestion"));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);

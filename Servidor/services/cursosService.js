@@ -16,29 +16,6 @@ async function buscaAsignaturasPorGrado(gradoId) {
     return data
 }
 
-async function creaNuevoGrado(grado) {
-    
-    let sql = "INSERT INTO `grado` (`nombre` VALUES (";
-
-    sql += "'"+grado.nombre+"');";
-
-    const rows = await db.query(sql);
-    const data = helper.emptyOrRows(rows);
-
-    return data
-}
-
-async function unGradoMenos(id) {
-
-    let sql = "DELETE FROM grado WHERE id= '" + id + "';"
-
-    const rows = await db.query(sql);
-    const data = helper.emptyOrRows(rows);
-
-    return data    
-}
 module.exports ={
-    buscaAsignaturasPorGrado,
-    creaNuevoGrado,
-    unGradoMenos
+    buscaAsignaturasPorGrado
 }

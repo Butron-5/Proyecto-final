@@ -31,6 +31,7 @@ function buscaCurso(event){
         fetch(urlCursos+"?id="+id, {method:'GET'}).then(
         
             response => {
+               
             return response.json();
                
         }).then(
@@ -40,6 +41,6 @@ function buscaCurso(event){
             limpiarBody("cursos")
             rellenarTabla(arrayCursos,"cursos");
         })
-    }
+    };
 
     window.buscaCurso = buscaCurso;
