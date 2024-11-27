@@ -125,7 +125,7 @@ function rellenarTablaConCheckbox(data, selectId) {//data es un array de datos q
     let out = '';
     for (let item of data) {
         out += '<tr>';
-        out += '<td> <input type="checkbox" value="' + item.id + ' onclick=check()> </td>'
+        out += '<td> <input type="checkbox" value="' + item.id + '> </td>'
         for (let value of Object.values(item)) {
             out += '<td>' + value + '</td>';
         }
