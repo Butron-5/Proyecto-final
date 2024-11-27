@@ -14,8 +14,18 @@ async function buscaAsignaturasPorGrado(gradoId) {
     const data = helper.emptyOrRows(rows);
 
     return data
-}
+};
 
+async function infoCurso() {
+    
+    let sql = "SELECT curso_escolar.id, curso_escolar.anyo_inicio, curso_escolar.anyo_fin FROM curso_escolar";
+
+    const rows = await db.query(sql,);
+    const data = helper.emptyOrRows(rows);
+    
+    return data
+};
 module.exports ={
-    buscaAsignaturasPorGrado
+    buscaAsignaturasPorGrado,
+    infoCurso
 }

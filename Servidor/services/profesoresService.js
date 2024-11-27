@@ -49,31 +49,9 @@ async function getProfesorByInfo(profesor) {
     return data
 }
 
-async function creaNuevoProfesor(profesor) {
-    
-    let sql = "INSERT INTO `profesor` (`nif`, `nombre`, `apellido1`, `apellido2`, `ciudad`, `direccion`,`telefono`, `fecha_nacimiento`, `sexo`,`id_departamento`) VALUES (";
 
-    sql += "'"+profesor.nif+"','"+profesor.nombre+"','"+profesor.apellido1+"','"+profesor.apellido2+"','"+profesor.ciudad+"','"+profesor.direccion+"','"+profesor.telefono+"','"+profesor.fecha_nacimiento+"','"+profesor.sexo+"','"+profesor.id_departamento+"');";
-
-    const rows = await db.query(sql);
-    const data = helper.emptyOrRows(rows);
-
-    return data
-}
-
-async function exterminaProfesores(id) {
-
-    let sql = "DELETE FROM profesores WHERE id= '" + id + "';"
-
-    const rows = await db.query(sql);
-    const data = helper.emptyOrRows(rows);
-
-    return data    
-}
 module.exports ={
     getAllProfesores,
     getOneProfesor,
-    getProfesorByInfo,
-    creaNuevoProfesor,
-    exterminaProfesores
+    getProfesorByInfo
 }

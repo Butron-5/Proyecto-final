@@ -27,4 +27,19 @@ router.get("/",async function (req,res) {
     
 });
 
+router.get("/busca", async function (req,res) {
+    
+    let code,msg
+
+    try{
+        code = 200;
+        msg ="Has obtenido toda la información de forma correcta."
+        const buscaCurso = await cursosService.infoCurso();
+        
+        res.status(200).json({code,msg,buscaCurso});
+    }catch(err){
+            console.error(err.message);
+            res.status(501).json({msg: "Error al obtener la información del curso, revisa la consola."});
+    }
+});
 module.exports = router;
