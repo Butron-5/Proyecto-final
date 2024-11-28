@@ -7,7 +7,7 @@ const urlCursos = servidor + "cursos";
 const urlDepartamento = servidor + "departamento";
 const urlGrado = servidor + "grado";
 const urlGestion = servidor + "gestion";
-
+const urlMatricula = servidor + "matriculado";
 /**
  * Esta función sera utilizada para crear tablas de forma dinámica.
  * @param {Array} data Array con los datos json
@@ -125,7 +125,7 @@ function rellenarTablaConCheckbox(data, selectId) {//data es un array de datos q
     let out = '';
     for (let item of data) {
         out += '<tr>';
-        out += '<td> <input type="checkbox" value="' + item.id + '> </td>'
+        out += '<td> <input type="checkbox" value="' + item.id + '"> </td>'
         for (let value of Object.values(item)) {
             out += '<td>' + value + '</td>';
         }
@@ -140,4 +140,4 @@ function rellenarTablaConCheckbox(data, selectId) {//data es un array de datos q
 
     table.innerHTML = out;
 };
-export { urlDepartamento, rellenarDesplegable, urlGrado, urlProfesor, rellenarTabla, urlAlumno, limpiarBody, urlAsignatura, urlCursos, vidaATablaOculta, rellenarTablaConCheckbox, urlGestion };
+export { urlDepartamento, rellenarDesplegable, urlGrado, urlProfesor, rellenarTabla, urlAlumno, limpiarBody, urlAsignatura, urlCursos, vidaATablaOculta, rellenarTablaConCheckbox, urlGestion, urlMatricula };

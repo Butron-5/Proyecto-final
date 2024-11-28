@@ -1,4 +1,4 @@
-import { urlGrado,rellenarDesplegable,urlGestion,rellenarTablaConCheckbox,urlCursos} from "./utilidades.js";
+import { urlGrado,rellenarDesplegable,urlGestion,rellenarTablaConCheckbox,urlCursos,urlMatricula} from "./utilidades.js";
 
 function buscarGrado(){
     
@@ -68,5 +68,16 @@ function alDarleSalenAsignaturas(event){
         const arrayCursos = data.buscaParaInscripcion;
         rellenarTablaConCheckbox(arrayCursos,"cursos");
     })
+    const alumnoId = document.getElementById('nombre').value;
+    const gradoSelect = document.getElementById('optionGrados');
+    const añoSelect = document.getElementById('anyo');
+    const gradoId = gradoSelect.value;
+    const añoId = añoSelect.value;
+    const allChecked = Array.from(document.querySelectorAll('input:checked')).map(e => e.id);
+    console.log(allChecked);
+
+    enviarDatos(alumnoId,gradoId,añoId)
 };
 window.alDarleSalenAsignaturas = alDarleSalenAsignaturas;
+
+
